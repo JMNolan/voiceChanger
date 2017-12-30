@@ -19,10 +19,15 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recordButton.imageView?.contentMode = .scaleAspectFit
+        stopRecordingButton.imageView?.contentMode = .scaleAspectFit
+        
+        //turns off the stop button when view is first initialized since nothing has been recorded
         stopRecordingButton.isEnabled = false
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    //adjusts the UI to inform the user whether the app is ready to record or already recording
     func configureUI(currentlyRecording: Bool){
         switch currentlyRecording {
         case false:
@@ -37,7 +42,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         
     }
     
-    
+    //records, saves, and prepares recorded audio for playback
     @IBAction func recordAudio(_ sender: Any) {
         configureUI(currentlyRecording: true)
         
@@ -57,6 +62,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.record()
         
     }
+    
+    //stops the recording currently in progress
     @IBAction func stopRecording(_ sender: Any) {
         configureUI(currentlyRecording: false)
         
@@ -67,7 +74,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     //MARK: - Audio Recorder Delegate
-    
+    //verify that recording was completed successfully and inform the user either way
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag{
             performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)

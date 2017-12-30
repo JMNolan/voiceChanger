@@ -19,40 +19,11 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var reverbButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
     
-    
-    //change the variable that controls how the sound is augmented
-    @IBAction func slowButtonActive(_ sender: Any) {
-        activeButton = "slow"
-    }
-    
-    @IBAction func fastButtonActive(_ sender: Any) {
-        activeButton = "fast"
-    }
-    
-    @IBAction func highPitchButtonActive(_ sender: Any) {
-        activeButton = "highPitch"
-    }
-    
-    @IBAction func lowPitchButtonActive(_ sender: Any) {
-        activeButton = "lowPitch"
-    }
-    
-    @IBAction func echoButtonActive(_ sender: Any) {
-        activeButton = "echo"
-    }
-    
-    @IBAction func reverbButtonActive(_ sender: Any) {
-        activeButton = "reverb"
-    }
-    
-    
-    
     var recordedAudioURL: URL!
     var audioFile: AVAudioFile!
     var audioEngine: AVAudioEngine!
     var audioPlayerNode: AVAudioPlayerNode!
     var stopTimer: Timer!
-    var activeButton: String = ""
     
     //enable or disable the stop button based on whether audio is currently playing or not
     func configurePlaybackUI (currentlyPlaying: Bool){
@@ -64,19 +35,21 @@ class PlaySoundsViewController: UIViewController {
         }
     }
     
+    //enum used to determine what effect should be applied on playback
+    enum activeButton: Int {case slow = 0, fast, highPitch, lowPitch, echo, reverb}
+    
     //augment the sound according to what button was pressed then play recording
     @IBAction func playSoundForButton(_sender: UIButton){
-        setupAudio()
-        switch activeButton {
-        case "slow":
+        switch (activeButton(rawValue: _sender.tag)!) {
+        case .slow:
             playSound(rate:0.25)
-        case "fast":
+        case .fast:
             playSound(rate:3)
-        case "highPitch":
+        case .highPitch:
             playSound(pitch: 500)
-        case "lowPitch":
+        case .lowPitch:
             playSound(pitch: -500)
-        case "echo":
+        case .echo:
             playSound(echo: true)
         default:
             playSound(reverb: true)
@@ -94,6 +67,13 @@ class PlaySoundsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        slowButton.imageView?.contentMode = .scaleAspectFit
+        fastButton.imageView?.contentMode = .scaleAspectFit
+        highPitchButton.imageView?.contentMode = .scaleAspectFit
+        lowPitchButton.imageView?.contentMode = .scaleAspectFit
+        echoButton.imageView?.contentMode = .scaleAspectFit
+        reverbButton.imageView?.contentMode = .scaleAspectFit
+        stopButton.imageView?.contentMode = .scaleAspectFit
         setupAudio()
 
     }
