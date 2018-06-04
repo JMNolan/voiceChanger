@@ -1,4 +1,3 @@
-
 # Voice Changer
 
 I will make an iPhone app that will allow users to record their voice and will then modulate the recorded audio to sound like a Chipmunk or Darth Vader. This app will also let the user speed up or slow down the rate of playback, and experience fun echo and reverb effects.
@@ -17,5 +16,13 @@ I will learn how to:
 - Run the iOS simulator and download the app on a physical device
 - Search documentation, resolve bugs, and read other people’s code
 
+## Record Sounds View Controller
+This is the first view shown when the user launches the app.  The user presses the record button, records the sound they will later apply effects to, then presses the stop button to finalize the recording. Successfully recording a clip segues the app to the playSoundsViewController.
 
->>>>>>> 17b309fb3d26ffa6ef8fbec5dff12153636dea12
+![Record Sounds View Controller](readMeImages/RecordSoundsViewController.png "View controller that allows user to record a sound.")
+
+## Play Sounds View Controller
+This is the view controller presented when the user successfully records a sound.  Each button plays the recorded sound with a different effect on them.  Pressing the stop button will stop the current sound from finishing playing.
+
+![Play Sounds View Controller](readMeImages/PlaySoundsViewController.png "View controller that allows user to play recorded sounds with different effects on it")
+
