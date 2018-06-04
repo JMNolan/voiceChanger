@@ -1,11 +1,11 @@
-Project Overview
-You will make an iPhone app that will allow users to record their voice and will then modulate the recorded audio to sound like a Chipmunk or Darth Vader. This app will also let the user speed up or slow down the rate of playback, and experience fun echo and reverb effects.
+# Voice Changer
+
+I will make an iPhone app that will allow users to record their voice and will then modulate the recorded audio to sound like a Chipmunk or Darth Vader. This app will also let the user speed up or slow down the rate of playback, and experience fun echo and reverb effects.
 
 Why this project?
-The first step in becoming an iOS Developer is to create your first app! Pitch Perfect provides a substantial, while not overly complicated, introduction to the iOS ecosystem.
+The first step in becoming an iOS Developer is to create my first app! **Voice Changer** provides a substantial, while not overly complicated, introduction to the iOS ecosystem.
 
-What will I learn?
-You will learn how to:
+I will learn how to:
 
 Create a new project from existing iOS app templates
 Add buttons, images, labels and create user interfaces for the app using the Storyboard
@@ -18,4 +18,3 @@ Search documentation, resolve bugs, and read other people’s code
 Why is this project meaningful to my career?
 MVC is the cornerstone of all iOS app development; understanding these principles early sets you on the path to success. Learning how to find answers to development questions by searching documentation emulates the practice of expert software engineers.
 
-You will also make a relevant project that you will feel proud to share with your friends, family, and peers.
